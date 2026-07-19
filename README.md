@@ -3,7 +3,7 @@
 A rocket delta-v calculator and mission-readiness dashboard, built to
 explore the physics behind orbital launch vehicles.
 
-**[Live demo →](#)** *(link added once deployed — see Deployment below)*
+**[Live demo →](https://yusufince2.github.io/PropulsionLab/)**
 
 ![PropulsionLab dashboard](https://via.placeholder.com/600x400?text=Add+a+screenshot+here)
 
