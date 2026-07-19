@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PropulsionLab</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="app">
+
+    <div class="top-bar">
+      <span class="app-name">PROPULSIONLAB</span>
+      <span class="app-tag">Rocket Performance</span>
+    </div>
+
+    <div class="card hero-card">
+      <div class="target-select-wrap">
+        <label for="missionTarget">TARGET</label>
+        <select id="missionTarget">
+          <option value="9400">Low Earth Orbit</option>
+          <option value="11700">Geostationary Transfer</option>
+          <option value="12500">Lunar Transfer</option>
+          <option value="13000">Mars Transfer</option>
+        </select>
+      </div>
+      <div class="ring-wrap">
+        <svg viewBox="0 0 200 200" class="ring">
+          <circle cx="100" cy="100" r="86" class="ring-track"></circle>
+          <circle cx="100" cy="100" r="86" class="ring-fill" id="ringFill"></circle>
+        </svg>
+        <div class="ring-center">
+          <span class="ring-value" id="readoutValue">0</span>
+          <span class="ring-unit">m/s</span>
+        </div>
+      </div>
+      <div class="hero-caption" id="heroCaption">Enter rocket specs to calculate</div>
+    </div>
+
+    <div class="stat-row">
+      <div class="stat-chip">
+        <span class="stat-label">ORBIT PROGRESS</span>
+        <span class="stat-value" id="orbitPct">0%</span>
+      </div>
+      <div class="stat-chip">
+        <span class="stat-label">MASS RATIO</span>
+        <span class="stat-value" id="massRatio">—</span>
+      </div>
+      <div class="stat-chip">
+        <span class="stat-label">BURN TIME</span>
+        <span class="stat-value" id="burnDisplay">—</span>
+      </div>
+    </div>
+
+    <div class="card input-card">
+      <div class="card-title">ROCKET SPECS</div>
+
+      <div class="input-group preset-group">
+        <label for="rocketPreset">Preset <span>optional</span></label>
+        <select id="rocketPreset">
+          <option value="custom">Custom</option>
+          <option value="falcon9">Falcon 9 (Block 5)</option>
+          <option value="saturnv">Saturn V (S-IC stage)</option>
+          <option value="starship">Starship Super Heavy</option>
+          <option value="atlasv">Atlas V (Common Core)</option>
+        </select>
+      </div>
+
+      <div class="input-grid">
+        <div class="input-group">
+          <label for="wetMass">Wet mass <span>kg</span></label>
+          <input type="number" id="wetMass" placeholder="500000">
+        </div>
+
+        <div class="input-group">
+          <label for="dryMass">Dry mass <span>kg</span></label>
+          <input type="number" id="dryMass" placeholder="25000">
+        </div>
+
+        <div class="input-group">
+          <label for="exhaustVelocity">Exhaust velocity <span>m/s</span></label>
+          <input type="number" id="exhaustVelocity" placeholder="3000">
+        </div>
+
+        <div class="input-group">
+          <label for="burnTime">Burn time <span>sec</span></label>
+          <input type="number" id="burnTime" placeholder="162">
+        </div>
+      </div>
+
+      <button id="calculateBtn">Calculate</button>
+    </div>
+
+    <div class="card chart-card">
+      <div class="card-title">Δv OVER BURN</div>
+      <canvas id="chart" width="600" height="240"></canvas>
+    </div>
+
+    <p class="footnote">Idealized values — excludes drag and gravity losses</p>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
